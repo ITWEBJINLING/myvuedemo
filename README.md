@@ -1,2 +1,4 @@
-# myvuedemo
-vue-cli3.0项目练习
+vue-cli3.0项目的练习
+一、初始化搭建项目：
+    安装：1、分别在git、nodejs官网下载对应安装包
+         2、
