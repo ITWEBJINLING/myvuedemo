@@ -60,7 +60,7 @@
             submit() {
                 this.$refs.form.validate((valid) => {
                     if (valid) {
-                        this.$router.push("home")
+                        this.$router.push("index")
                     } else {
                         return false;
                     }

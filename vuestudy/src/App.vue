@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <router-view/>
+    <!-- <router-view/> -->
+    <!-- <div>{{$route.meta.indexKeepAlive}}</div> -->
+    <keep-alive :include="['indexKeepAlive', 'index']">
+      <router-view></router-view>
+    </keep-alive>
+    <!-- <router-view v-if="!$route.meta.indexKeepAlive"/> -->
   </div>
 </template>
 
