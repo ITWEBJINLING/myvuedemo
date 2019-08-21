@@ -41,7 +41,7 @@
 
       <el-form-item>
         <el-button type="primary" @click="onSubmit">立即创建</el-button>
-        <el-button>取消</el-button>
+        <el-button @click="tiaozhuan">跳转</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -66,22 +66,21 @@ export default {
       }
     };
   },
-  // beforeRouteLeave(to,from,next){
-  //         if(to.name==='home'){
-  //             if(!from.meta.indexKeepAlive){
-  //                 from.meta.indexKeepAlive=true;//当我们进入到C时开启B的缓存
-  //                   console.log(from.meta.indexKeepAlive)
-  //             }
-  //             next()
-  //         }else{
-  //             from.meta.indexKeepAlive=false;
-  //             this.$destroy();//销毁B的实例
-  //             next();//当我们前进的不是C时我们让B页面刷新
-  //         }
-  //     },
+   beforeRouteLeave (to, from, next) {
+     console.log(from)
+    // 如果下一个页面不是详情页（C），则取消列表页（B）的缓存
+    if (to.name !== 'home') {
+      //  from.name='fff'
+        // this.$store.commit('global/noKeepAlive', from.name)
+    }
+    next()
+  },
   methods: {
     onSubmit() {
       this.$router.push("home");
+    },
+    tiaozhuan(){
+      this.$router.push("fanhui");
     }
   }
 };

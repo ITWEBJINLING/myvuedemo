@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import login from './views/login/index'
 import index from './views/index'
 import home from './views/home'
+import fanhui from './views/fanhui'
 Vue.use(Router)
 
 export default new Router({
@@ -26,6 +27,11 @@ export default new Router({
       path:'/home',
       name:'home',
       component:home
+    },
+    {
+      path:'/fanhui',
+      name:'fanhui',
+      component:fanhui
     }
   ]
 })
