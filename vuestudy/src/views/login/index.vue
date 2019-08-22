@@ -1,3 +1,4 @@
+
 <template>
     <div class="login">
         <div class="login-bj">
@@ -24,7 +25,7 @@
         <div class="login-form">
             <el-form :model="form" status-icon :rules="rules" ref="form" label-width="83px" class="">
                 <el-form-item label="用户名:" prop="name">
-                    <input type="text" class="login-input" v-model="form.name">
+                    <input type="text" class="login-input" style="background-color:rgba(0,0,0,0) !important" v-model="form.name">
                 </el-form-item>
                 <el-form-item label="密码:" prop="password">
                     <input type="password" class="login-input" v-model="form.password">
@@ -94,11 +95,12 @@
 }
 .login-form{
     width: 22%;
-    background-color: rgba(255,255,255,.4);
+    background-color: rgba(255,255,255,.1);
     position: absolute;
     left:calc(50% - 15%);
-    top: 200px;
+    top:300px;
     padding: 40px 50px 30px 40px;
+    border-radius: 8px;
 }
 .login-input{
     width: 100%;
@@ -110,6 +112,10 @@
     font-size: 16px;
     color: #fff;
     }
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px rgba(0,0,0,0) inset !important;
+    outline:none;
+}
 .login-submit{
     width: calc(100% + 60px);
     height: 40px;
