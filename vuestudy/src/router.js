@@ -1,37 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import login from './views/login/index'
-import index from './views/index'
-import home from './views/home'
-import fanhui from './views/fanhui'
 Vue.use(Router)
 
+const routerList=[];
+function importAll(r){
+  r.keys().forEach(
+    (key)=>routerList.push(r(key).default)
+  )
+}
+// 使用正则匹配所有.routes或者.js的文件
+importAll(require.context('.',true,/\.routes\.js/))
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {
-      path: '/',
-      name: 'login',
-      component: login
-    },
-    {
-      path: '/index',
-      name: 'index',
-      component: index,
-      // meta:{
-      //   indexKeepAlive:true,
-      // }
-    },
-    {
-      path:'/home',
-      name:'home',
-      component:home
-    },
-    {
-      path:'/fanhui',
-      name:'fanhui',
-      component:fanhui
-    }
+    ...routerList
   ]
 })
