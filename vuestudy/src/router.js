@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import login from './router/login.routes.js'
 import index from './router/index.routes.js'
+import lcomponent from './router/lcomponent.routes.js'
 
 Vue.use(Router)
 
@@ -9,7 +10,8 @@ export default new Router({
   mode:'history',
   routes:[
     login,
-    index
+    index,
+    lcomponent
   ]
 })
 
