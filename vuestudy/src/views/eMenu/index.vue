@@ -6,12 +6,10 @@
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
-      background-color="#545c64"
-      text-color="#fff"
+      background-color="#003260"
+      text-color="#bfcbd9"
       router
-      active-text-color="#ffd04b">
-
-
+      active-text-color="#ffffff">
       <!-- <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
@@ -48,6 +46,26 @@
           <el-menu-item index="/lcomponent/lupload">
             <i class="el-icon-setting"></i>
             <span slot="title">上传组件</span>
+          </el-menu-item>
+          <el-menu-item index="/lcomponent/tree">
+            <i class="el-icon-setting"></i>
+            <span slot="title">树形结构</span>
+          </el-menu-item>
+          <el-menu-item index="/lcomponent/echarts">
+            <i class="el-icon-setting"></i>
+            <span slot="title">echarts图表</span>
+          </el-menu-item>
+          <el-menu-item index="/lcomponent/date">
+            <i class="el-icon-setting"></i>
+            <span slot="title">日历组件</span>
+          </el-menu-item>
+          <el-menu-item index="/lcomponent/banner">
+            <i class="el-icon-setting"></i>
+            <span slot="title">轮播</span>
+          </el-menu-item>
+          <el-menu-item index="/lcomponent/timeLine">
+            <i class="el-icon-setting"></i>
+            <span slot="title">时间轴</span>
           </el-menu-item>
       </el-submenu>
     </el-menu>
@@ -88,9 +106,14 @@
   display: flex;
 }
 .home-left{
-  width: 280px;
+  width: 275px;
   height: 100%;
-  background-color: rgb(41, 34, 34);
+  background-color: #003260;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.el-menu-vertical-demo{
+  width: 280px;
 }
 .home-right{
   width: calc(100% - 290px);
