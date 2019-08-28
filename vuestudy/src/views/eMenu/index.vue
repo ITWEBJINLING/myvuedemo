@@ -10,30 +10,6 @@
       text-color="#bfcbd9"
       router
       active-text-color="#ffffff">
-      <!-- <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>首页</span>
-        </template> -->
-        <!-- <el-submenu index="1-1">
-          <template slot="title">
-                  <i class="el-icon-setting"></i>
-                  <span slot="title">导航四</span>
-          </template>
-          <el-menu-item index="1-1-1-1">
-            <i class="el-icon-setting"></i>
-            <span slot="title">导航四</span>
-          </el-menu-item>
-        </el-submenu> -->
-        <!-- <el-menu-item index="1-2">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-        <el-menu-item index="1-3">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-      </el-submenu>   -->
       <el-menu-item index="/home">
           <i class="el-icon-setting"></i>
           <span slot="title">首页</span>
@@ -66,6 +42,16 @@
           <el-menu-item index="/lcomponent/timeLine">
             <i class="el-icon-setting"></i>
             <span slot="title">时间轴</span>
+          </el-menu-item>
+      </el-submenu>
+      <el-submenu index="/example">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>案例</span>
+          </template>
+          <el-menu-item index="/lcomponent/imgSlice">
+            <i class="el-icon-setting"></i>
+            <span slot="title">截取图片</span>
           </el-menu-item>
       </el-submenu>
     </el-menu>
