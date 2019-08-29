@@ -49,7 +49,7 @@
             <i class="el-icon-location"></i>
             <span>案例</span>
           </template>
-          <el-menu-item index="/lcomponent/imgSlice">
+          <el-menu-item index="/example/imgSlice">
             <i class="el-icon-setting"></i>
             <span slot="title">截取图片</span>
           </el-menu-item>
@@ -57,7 +57,9 @@
     </el-menu>
     </div>
     <div class="home-right">
+      <transition name="el-fade-in">
         <router-view></router-view>
+      </transition>
     </div>
   </div>
 </template>

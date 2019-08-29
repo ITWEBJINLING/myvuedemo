@@ -12,3 +12,10 @@ button:focus{
     border: none;
     outline: none;
 }
+
+ .el-button--mini{
+    font-size: 16px !important;
+}
+.el-button--mini, .el-button--mini.is-round{
+    padding:3px 20px !important;
+}
