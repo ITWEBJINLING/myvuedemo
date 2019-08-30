@@ -53,6 +53,10 @@
             <i class="el-icon-setting"></i>
             <span slot="title">截取图片</span>
           </el-menu-item>
+          <el-menu-item index="/example/group">
+            <i class="el-icon-setting"></i>
+            <span slot="title">多选框组</span>
+          </el-menu-item>
       </el-submenu>
     </el-menu>
     </div>
