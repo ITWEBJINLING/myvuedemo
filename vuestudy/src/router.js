@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import login from './router/login.routes.js'
 import index from './router/index.routes.js'
-import lcomponent from './router/lcomponent.routes.js'
+import components from './router/components.routes.js'
 import examples from './router/example.routes.js'
 
 Vue.use(Router)
@@ -12,7 +12,7 @@ export default new Router({
   routes:[
     login,
     index,
-    lcomponent,
+    components,
     examples
   ]
 })

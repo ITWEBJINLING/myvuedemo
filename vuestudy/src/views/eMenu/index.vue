@@ -14,32 +14,32 @@
           <i class="el-icon-setting"></i>
           <span slot="title">首页</span>
       </el-menu-item>
-      <el-submenu index="/lcomponent">
+      <el-submenu index="/components">
           <template slot="title">
             <i class="el-icon-location"></i>
             <span>组件库</span>
           </template>
-          <el-menu-item index="/lcomponent/lupload">
+          <el-menu-item index="/components/lupload">
             <i class="el-icon-setting"></i>
             <span slot="title">上传组件</span>
           </el-menu-item>
-          <el-menu-item index="/lcomponent/tree">
+          <el-menu-item index="/components/tree">
             <i class="el-icon-setting"></i>
             <span slot="title">树形结构</span>
           </el-menu-item>
-          <el-menu-item index="/lcomponent/echarts">
+          <el-menu-item index="/components/echarts">
             <i class="el-icon-setting"></i>
             <span slot="title">echarts图表</span>
           </el-menu-item>
-          <el-menu-item index="/lcomponent/date">
+          <el-menu-item index="/components/date">
             <i class="el-icon-setting"></i>
             <span slot="title">日历组件</span>
           </el-menu-item>
-          <el-menu-item index="/lcomponent/banner">
+          <el-menu-item index="/components/banner">
             <i class="el-icon-setting"></i>
             <span slot="title">轮播</span>
           </el-menu-item>
-          <el-menu-item index="/lcomponent/timeLine">
+          <el-menu-item index="/components/timeLine">
             <i class="el-icon-setting"></i>
             <span slot="title">时间轴</span>
           </el-menu-item>
