@@ -186,7 +186,9 @@
         </template>
       </el-table-column>
     </el-table>
-
+    <div style="text-align:center">
+      <table border="1" cellpadding="3" cellspacing="0" style="margin:auto" id="showExcel"></table>
+    </div>
     <!-- <div class="excel">
        <div class="upload-excel">
          <el-upload
@@ -232,9 +234,14 @@ export default {
         return;
       }
       this.file2Xce(file).then(tabJson => {
-        if (tabJson && tabJson.length > 0) {
-          this.xlsxJson = tabJson
-        }
+        var a=tabJson.split('<table>')[1];
+        var b=a.split('</table>')[0];
+        console.log(b);
+        document.getElementById('showExcel').innerHTML=b;
+
+        // if (tabJson && tabJson.length > 0) {
+        //   this.xlsxJson = tabJson
+        // }
       })
     },
     // 读取表格内容
@@ -248,16 +255,46 @@ export default {
           })
           const result = []
           wb.SheetNames.forEach((sheetName) => {
-            result.push({
-              sheetName: sheetName,
-              sheet: XLSX.utils.sheet_to_json(wb.Sheets[sheetName])
-            })
+            console.log(sheetName)
+          //   console.log(wb.Sheets[sheetName])
+          //   result.push({
+          //     sheetName: sheetName,
+          //     sheet: XLSX.utils.sheet_to_json(wb.Sheets[sheetName])
+          //   })
           })
-          resolve(result)
+          // result.push({
+              // sheetName: 'Sheet1',
+              var csv = XLSX.utils.sheet_to_html(wb.Sheets['Sheet1'])
+
+          // })
+          resolve(csv)
         }
         reader.readAsBinaryString(file.raw)
       })
-    }
+    },
+    csv2table(csv){
+    var html = '<table>';
+    var rows = csv.split('\n');
+    rows.pop(); // 最后一行没用的
+    rows.forEach(function(row, idx) {
+        var columns = row.split(',');
+        columns.unshift(idx+1); // 添加行索引
+        if(idx == 0) { // 添加列索引
+            html += '<tr>';
+            for(var i=0; i<columns.length; i++) {
+                html += '<th>' + (i==0?'':String.fromCharCode(65+i-1)) + '</th>';
+            }
+            html += '</tr>';
+        }
+        html += '<tr>';
+        columns.forEach(function(column) {
+            html += '<td>'+column+'</td>';
+        });
+        html += '</tr>';
+    });
+    html += '</table>';
+    return html;
+},
   }
 };
 </script>
