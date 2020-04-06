@@ -234,16 +234,42 @@ export default {
         return;
       }
       this.file2Xce(file).then(tabJson => {
-        var a=tabJson.split('<table>')[1];
-        var b=a.split('</table>')[0];
-        console.log(b);
-        document.getElementById('showExcel').innerHTML=b;
-
-        // if (tabJson && tabJson.length > 0) {
-        //   this.xlsxJson = tabJson
+        // const letterArr = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+        // let tabJsons=tabJson,jsonstr={},mergeJson=tabJson['!merges'];
+        // delete tabJsons["!margins",'!merges','!ref'];
+        // let objKeys = Object.keys(tabJsons);
+        // let num = /[^0-9]/ig,letter = /[^A-Z]/ig;
+        // let dataCellArr=[],dataCellArr_row=[],dataCellArr_col=[];
+        // for(let i=0;i<4;i++){
+        //   for(let y=0;y<26;y++){
+        //     for(let j=0;j<mergeJson.length;j++){
+              
+        //       console.log(mergeJson[j].s.r)
+        //     }
+        //   }
+        // }
+        
+        // for(let i=0;i<objKeys.length;i++){
+        //   let nums=Number(objKeys[i].replace(num,''))
+        //   let letters=objKeys[i].replace(letter,'')
+        //   if(nums<=4 && nums>0){
+        //     for(let j=0;j<mergeJson.length;j++){
+        //       if(mergeJson[j].s.r+1==nums){
+        //       }
+        //     }
+        //   }
+        // }
+        // for(let i=0;i<objKeys.length;i++){
+        //   jsonstr[objKeys[i]]
         // }
       })
     },
+
+    // 变化
+    changeTabJson(row,json){
+
+    },
+
     // 读取表格内容
     file2Xce(file) {
       return new Promise(function(resolve, reject) {
@@ -253,48 +279,51 @@ export default {
           let wb = XLSX.read(data, {
             type: 'binary'
           })
-          const result = []
-          wb.SheetNames.forEach((sheetName) => {
-            console.log(sheetName)
+          let jsons=XLSX.utils.sheet_to_html(wb.Sheets[wb.SheetNames[0]]);
+          console.log(jsons)
+          // let jsons=wb.Sheets[wb.SheetNames[0]]
+          // let jsons=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+          // var str=XLSX.utils.sheet_to_row_object_array(wb.Sheets[wb.SheetNames[0]])
+          // const result = []
+          // wb.SheetNames.forEach((sheetName) => {
           //   console.log(wb.Sheets[sheetName])
           //   result.push({
           //     sheetName: sheetName,
           //     sheet: XLSX.utils.sheet_to_json(wb.Sheets[sheetName])
           //   })
-          })
+          // })
           // result.push({
               // sheetName: 'Sheet1',
-              var csv = XLSX.utils.sheet_to_html(wb.Sheets['Sheet1'])
-
+              // var csv = XLSX.utils.sheet_to_html(wb.Sheets['Sheet1'])
           // })
-          resolve(csv)
+          resolve(jsons)
         }
         reader.readAsBinaryString(file.raw)
       })
     },
-    csv2table(csv){
-    var html = '<table>';
-    var rows = csv.split('\n');
-    rows.pop(); // 最后一行没用的
-    rows.forEach(function(row, idx) {
-        var columns = row.split(',');
-        columns.unshift(idx+1); // 添加行索引
-        if(idx == 0) { // 添加列索引
-            html += '<tr>';
-            for(var i=0; i<columns.length; i++) {
-                html += '<th>' + (i==0?'':String.fromCharCode(65+i-1)) + '</th>';
-            }
-            html += '</tr>';
-        }
-        html += '<tr>';
-        columns.forEach(function(column) {
-            html += '<td>'+column+'</td>';
-        });
-        html += '</tr>';
-    });
-    html += '</table>';
-    return html;
-},
+    // csv2table(csv){
+    //   var html = '<table>';
+    //   var rows = csv.split('\n');
+    //   rows.pop(); // 最后一行没用的
+    //   rows.forEach(function(row, idx) {
+    //     var columns = row.split(',');
+    //     columns.unshift(idx+1); // 添加行索引
+    //     if(idx == 0) { // 添加列索引
+    //         html += '<tr>';
+    //         for(var i=0; i<columns.length; i++) {
+    //             html += '<th>' + (i==0?'':String.fromCharCode(65+i-1)) + '</th>';
+    //         }
+    //         html += '</tr>';
+    //     }
+    //     html += '<tr>';
+    //     columns.forEach(function(column) {
+    //         html += '<td>'+column+'</td>';
+    //     });
+    //     html += '</tr>';
+    //   });
+    //   html += '</table>';
+    //   return html;
+    // },
   }
 };
 </script>
